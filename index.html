@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Witzk</title>
+    <style>
+		 .TXT1 {
+            color: red;
+        }
+		 .TXT2 {
+            color: orange;
+        }
+		 .TXT3 {
+            color: yellow;
+        }
+		 .TXT4 {
+            color: green;
+        }
+		 .TXT5 {
+            color: Orange;
+        }
+		 button {
+			   color: Red;
+		      border: none;
+            backgroundcolor:#4CAF50;
+			   padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+			   cursor: pointer;
+        }
+        button:hover {
+            background-color: #47b5a4;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+<span class="TXT1">Hallo,</span>
+<span class="TXT2">Wilkommen</span>
+<span class="TXT3">bei</span>
+<span class="TXT4">Witzk</span>
+	 </h1>
+	<button onclick="websiteOeffnen()">
+	<strong>Drück mich</strong>
+	</button>
+	<script>
+        function websiteOeffnen() {
+            window.location.href = "https://www.example.com";
+        }
+    </script>
+</body>
+</html>
