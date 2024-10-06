@@ -3,59 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico"> <!-- Favicon hinzufügen -->
     <title>Witzk</title>
-    <style>
-		 .TXT1 {
-			 color: red;
-        }
-		 .TXT2 {
-			 color: orange;
-        }
-		 .TXT3 {
-			 color: yellow;
-        }
-		 .TXT4 {
-			 color: green;
-        }
-		 .TXT5 {
-			 color: Black;
-        }
-		 h3 {
-			 display: inline;
-		}
-		 button {
-			 color: Red;
-			 border: none;
-			 backgroundcolor:#4CAF50;
-			 padding: 10px 20px;
-			 border-radius: 5px;
-			 font-size: 16px;
-			 cursor: pointer;
-        }
-		 button:hover {
-			 background-color:#47b5a4;
-			 border:none;
-			 color:black;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>
-		 <span class="TXT1">Hallo,</span>
-		 <span class="TXT2">Wilkommen</span>
-		 <span class="TXT3">bei</span>
-		 <span class="TXT4">Witzk</span>
-	 </h3>
-	<br>
-	<br>
-	<br>
-	<br>
-	<h3><span class="TXT5"><strong>Tharan´s blog --></strong></span></h3>
-	<button onclick="PAGE1()"><strong>Zu Tharan´s Blog</strong></button>
-	<script>
-		function PAGE1() {
-			window.location.href = "https://tharanebanane.github.io/Tharan-Blog/";
-        }
-    </script>
+<body class="dark-mode"> <!-- Standardmodus ist Dark Mode -->
+
+    <!-- Anmeldeformular -->
+    <div id="loginForm" class="login-form">
+        <h2>Anmeldung</h2>
+        <label for="username">Benutzername:</label>
+        <input type="text" id="username" required>
+        <br>
+        <label for="password">Passwort:</label>
+        <input type="password" id="password" required>
+        <br>
+        <button onclick="login()">Anmelden</button>
+        <p id="loginError" class="error"></p>
+        <p class="register-text">Kein Konto? <a href="#" onclick="showRegister()">Erstelle dir eins!</a></p>
+    </div>
+
+    <!-- Registrierungsformular -->
+    <div id="registerForm" class="register-form" style="display: none;">
+        <h2>Registrierung</h2>
+        <label for="newUsername">Benutzername:</label>
+        <input type="text" id="newUsername" required>
+        <br>
+        <label for="newPassword">Passwort:</label>
+        <input type="password" id="newPassword" required>
+        <br>
+        <label for="confirmPassword">Passwort bestätigen:</label>
+        <input type="password" id="confirmPassword" required>
+        <br>
+        <button onclick="register()">Registrieren</button>
+        <p id="registerError" class="error"></p>
+    </div>
+
+    <!-- Hauptseite (wird erst nach Anmeldung angezeigt) -->
+    <div id="mainContent" style="display: none;">
+        <h1>
+            <span class="TXT1">Hallo,</span>
+            <span class="TXT2">Wilkommen</span>
+            <span class="TXT3">bei</span>
+            <span class="TXT4">Witzk</span>
+        </h1>
+		 
+        <!-- KI-Option -->
+        <button class="ki-option" onclick="showChatbot()"><strong>Chaten mit KI</strong></button>
+        <button class="logout" onclick="logout()"><strong><span class="TXT6">Abmelden</span></strong></button>
+    </div>
+
+    <!-- Chatbot-Bereich -->
+    <div id="chatbot" style="display: none;">
+        <h2>Chatbot</h2>
+        <div id="chatArea" style="border: 1px solid black; height: 300px; overflow-y: scroll; padding: 10px;">
+            <div id="chatOutput"></div>
+        </div>
+        <input type="text" id="chatInput" placeholder="Schreib etwas...">
+        <button onclick="sendMessage()">Senden</button>
+        <button onclick="closeChatbot()">Schließen</button>
+    </div>
+
+    <!-- JavaScript-Datei -->
+    <script src="script.js"></script>
 </body>
 </html>
